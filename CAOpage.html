@@ -13,7 +13,6 @@
       table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
-       
       }
 
       td,
@@ -39,6 +38,15 @@
       a:hover,
       a:active {
         color: #eee;
+      }
+      mark.red {
+        color: #ff0000;
+        background: none;
+      }
+
+      mark.blue {
+        color: #0000a0;
+        background: none;
       }
     </style>
   </head>
@@ -204,7 +212,7 @@
       value of R16 after each of the instructions. (HINT if done correctly R16
       should contain the value 34 in the end)
     </p>
-    <details class="details-example">
+    <details>
       <summary>
         <mark> Click here to see the solution</mark>
       </summary>
@@ -250,69 +258,97 @@
     <p><br /><br /><br /></p>
     <h2>3. Boolean Arithmetic</h2>
     <p>
-      The truth table of some combinational logic can be seen in the table below
+      The truth table of some combinational logic can be seen in the table
+      below:
     </p>
     <table>
-        <tr>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>Out</td>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
+      <tr>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>Out</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
     </table>
+    <p>
+      TASK 3.1: Write down the boolean function described in the table, and
+      reduce it as much as possible.
+    </p>
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <p>
+        !a!bc+  <mark class="red"> a!b!c+a!bc </mark> <mark class="blue">+ab!c+abc</mark><br />
+        !a!bc+<mark class="red">a!b(!c+c)</mark>+<mark class="blue">ab(!c+c)</mark><br />
+        !a!bc+<mark class="red">a!b</mark>+<mark class="blue">ab</mark><br />
+        !a!bc+a(<mark class="red">!b</mark>+<mark class="blue">b</mark>)<br />
+        !a!bc+a<br />
+        !bc+a
+      </p>
+    </details>
+
+    <p>
+        TASK 3.2: Implement the circuit in the <a href="http://falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWc0FwCwCY0HYEA4cEMElURTJyBTAWjDACgwyNsNwA2StMDzyyu0oIGAGXAY8-EHkq9BUEADMAhgBsAzlXJQxEqRiwzBRocvVadkBgFlykkBkhSE2Pk4OOUDAJKPnjkYAzEHuRgIo5ExEjgh8QZBoIDzxiYpmIuJgDpJSso54npSqmtpI1gAe5EEAnODYLtjY4HgQSUYA8gCuAC4MVQhB4GiUHHVgaEPtSQCC-eSC2SAc7szJjkkAQvMIEKx8HAbYddMgAMIMQA" target="_blank">simulator</a> using AND, OR and inverter gates (left click on the gates and select “Edit” if you want more than 2 inputs). 
+      </p>
+      <details>
+        <summary>
+          <mark> Click here to see the solution</mark>
+        </summary>
+        <a href="http://falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWc0FwCwCY0HYEA4cEMElURTJyBTAWjDACgwyNsMRiA2ENMbrqB0EIGAGXAY84TpTyU+ldpQBmAQwA2AZyrkoYiVIxYQcjsaUg1WnUkgMAsiBmHjnBP3McUDAJIGzaBzuAYIwpExEPGgugc4hisL6YJIceFKmkoaCVtq6dgAeTmAAnODFsQjYZVWBxgDyAK4ALgyFCADM4GiUnKVgaJ21gQCCreSKyU78zDwcgQBCYwgQrNychtilQyAAwgwA7v6ZHGwnSgdBHrWnWJR2h8lSClGGkFL3PHyXL3N3DEA" target="_blank">Link to solution</a>
+      </details>
 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
     <img
-    title="random Pic"
+      title="random Pic"
       src="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
       alt="Missing a random pic"
       loading="lazy"
