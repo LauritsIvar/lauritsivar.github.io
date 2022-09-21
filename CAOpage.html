@@ -1,4 +1,322 @@
 <!DOCTYPE html>
-<html>
-    <p>This is the caopage</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Laurits Ivar" />
+    <meta name="description" content="This page contains CAO exercises" />
+    <title>CAO exercises</title>
+    <link
+      rel="icon"
+      href="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
+    />
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+       
+      }
+
+      td,
+      th {
+        border: 1px solid #000000;
+        text-align: left;
+        padding: 8px;
+      }
+
+      html {
+        font-size: 18px;
+      }
+      body {
+        background-color: rgb(100, 99, 99);
+        color: whitesmoke;
+      }
+      a {
+        color: aliceblue;
+      }
+      a:visited {
+        color: aliceblue;
+      }
+      a:hover,
+      a:active {
+        color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="..">go back</a>
+    <h2>1. CPU</h2>
+    <p>
+      The 8-bit AVR CPU is running a program stored in the RAM. The first 3
+      instructions can be seen on the figure below
+    </p>
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Opcode</th>
+        <th>Hint</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1110 0000 0001 0011</td>
+        <td>
+          Look at page 115 in the
+          <a
+            href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+            >instruction-set-manual</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0110 1000 0001 0110</td>
+        <td>
+          Look at page 133 in the
+          <a
+            href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+            >instruction-set-manual</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>0111 1010 0001 0100</td>
+        <td>
+          Look at page 36 in the
+          <a
+            href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+            >instruction-set-manual</a
+          >
+        </td>
+      </tr>
+    </table>
+    <a
+      href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+      target="_blank"
+      >The instruction manuel can be found here</a
+    >
+
+    <p>
+      TASK: Explain what happens in each of the instructions, and write down the
+      value of R17 after each of the instructions. (HINT if done correctly
+      register17 should contain the value 132 in the end)
+    </p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Opcode</th>
+          <th>Solution</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1110 0000 0001 0011</td>
+          <td>
+            K = 0b0001 0001 = 17<br />
+            d = 0b0000 = 0 = R16<br />
+            LDI R16, 17 // Register 16 = 17
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0110 1000 0001 0110</td>
+          <td>
+            K = 0b1000 0110 <br />
+            d = 0b001 = 1 =R17<br />
+            ORI R17, 0b1000 0110<br />
+            R17 is OR’ed with the value above. Then R17 becomes:<br />
+            R17 = 0b1000 0111 = 135
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0111 1010 0001 0100</td>
+          <td>
+            K = 0b 1010 0100<br />
+            d = 0b 0001 = 1 = R17<br />
+            ANDI R17, 0b 1010 0100<br />
+            R17 is AND’ed with the value above. <br />
+            R17 = 0b 1000 0100 = 132
+          </td>
+        </tr>
+      </table>
+    </details>
+    <p><br /><br /><br /></p>
+    <hr />
+    <h2>2. CPU</h2>
+
+    <p>
+      The 8-bit AVR CPU is running a program stored in the RAM. The first 3
+      instructions can be seen on the figure below
+    </p>
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Opcode</th>
+        <th>Hint</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1110 0001 0000 0001</td>
+        <td>
+          Look at page 115 in the
+          <a
+            href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+            target="_blank"
+            >instruction-set-manual</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0010 1111 0010 0000</td>
+        <td>
+          Look at page 123 in the
+          <a
+            href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+            target="_blank"
+            >instruction-set-manual</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>0000 1111 0000 0010</td>
+        <td>
+          Look at page 32 in the
+          <a
+            href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+            target="_blank"
+            >instruction-set-manual</a
+          >
+        </td>
+      </tr>
+    </table>
+    <a
+      href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+      target="_blank"
+      >The instruction manuel can be found here</a
+    >
+
+    <p>
+      TASK: Explain what happens in each of the instructions, and write down the
+      value of R16 after each of the instructions. (HINT if done correctly R16
+      should contain the value 34 in the end)
+    </p>
+    <details class="details-example">
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Opcode</th>
+          <th>Solution</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1110 0001 0000 0001</td>
+          <td>
+            K = 0b0001 0001 = 17<br />
+            d = 0b0000 = 0 = R16<br />
+            LDI R16, 17 // Register 16 = 17
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0010 1111 0010 0000</td>
+          <td>
+            r = 0b10000=0=r16 <br />
+            d = 0b10010 = 2 =R18<br />
+            The value of R16 is copied into R18<br />
+            Therefor both R16 and R18 is:<br />
+            R16=R18 = 0b0001 0001 = 17
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0000 1111 0000 0010</td>
+          <td>
+            d = 0b10000=0=r16 <br />
+            r = 0b10010 = 2 =R18<br />
+            R16 and R18 is added together. The results is stored in Rd (R16)<br />
+            R16=17+17=34<br />
+            R18 still contains the value 17 afterwards.
+          </td>
+        </tr>
+      </table>
+    </details>
+    <p><br /><br /><br /></p>
+    <h2>3. Boolean Arithmetic</h2>
+    <p>
+      The truth table of some combinational logic can be seen in the table below
+    </p>
+    <table>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>Out</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <img
+    title="random Pic"
+      src="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
+      alt="Missing a random pic"
+      loading="lazy"
+      width="300"
+    />
+  </body>
 </html>
