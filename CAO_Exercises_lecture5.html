@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Laurits Ivar" />
+    <meta
+      name="description"
+      content="This page contains CAO exercises to lecture 4"
+    />
+    <title>CAO exercises</title>
+    <link
+      rel="icon"
+      href="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="..">go back</a>
+    <h2>1. Installing atmel Studio</h2>
+
+    <p>
+      If haven't done allready then install atmelstudio with avr-dude, by
+      following
+      <a href="atmelGuide.pdf" target="_blank">this guide</a> carefully!
+    </p>
+    <h2>2. Memory</h2>
+    <p>
+      The ATmega2560 has 256KiB of flash memory. Since most instruction is 16
+      bits there are 16 data pins. <br /><br />
+      TASK 2.1: What is the total capacity in bits of the flash memory?
+    </p>
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <p>256*1024*8=2097152</p>
+    </details>
+
+    <p><br />TASK 2.2: How many addresses does the flash have?</p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <p>(256*1024)/2=131072</p>
+    </details>
+
+    <p><br /><br /><br /></p>
+    <hr />
+    <h2>3. Assembly language</h2>
+
+    <p>
+      In the following you have to look in the instruction set, which can be
+      found
+      <a
+        href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
+        target="_blank"
+        >here:</a
+      >
+      The assemblers job is to translate assembly language into Machine code.
+      <br />
+      Fill out the following tables:
+    </p>
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Assembly</th>
+        <th>Binary code</th>
+        <th>Binary code</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td><mark class="blue">LDI</mark> R17, 101</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><mark class="blue">LDI</mark> R18, 153</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><mark class="blue">ADD</mark> R17, R18</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Assembly</th>
+          <th>Binary code</th>
+          <th>Binary code</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td><mark class="blue">LDI</mark> R17, 101</td>
+          <td>1110 0110 0001 0101</td>
+          <td>R17=101</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><mark class="blue">LDI</mark> R18, 153</td>
+          <td>1110 1001 0010 1001</td>
+          <td>R18=153</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><mark class="blue">ADD</mark> R17, R18</td>
+          <td>0000 1111 0001 0010</td>
+          <td>R17=254 abd R18 is still =153</td>
+        </tr>
+      </table>
+    </details>
+
+    <p><br /><br /></p>
+
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Assembly</th>
+        <th>Binary code</th>
+        <th>Binary code</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td><mark class="blue">LDI</mark> R16, 0b10000011</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><mark class="blue">LDI</mark>R17, 128</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><mark class="blue">ADD</mark> R16, R17;</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Assembly</th>
+          <th>Binary code</th>
+          <th>Binary code</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td><mark class="blue">LDI</mark> R16, 0b10000011</td>
+          <td>1110 1000 0000 0011</td>
+          <td>R16 = 131</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><mark class="blue">LDI</mark>R17, 128</td>
+          <td>1110 1000 0001 0000</td>
+          <td>R17=128</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><mark class="blue">ADD</mark> R16, R17;</td>
+          <td>0000 1111 0000 0001</td>
+          <td>R16=3, as overfloat has happened.</td>
+        </tr>
+      </table>
+    </details>
+
+    <p><br /><br /></p>
+
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Assembly</th>
+        <th>Binary code</th>
+        <th>Binary code</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td><mark class="blue">LDI</mark> R16, 0x0F</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><mark class="blue">ANDI</mark>R16, 0xAA</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><mark class="blue">LSR</mark> R16;</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Assembly</th>
+          <th>Binary code</th>
+          <th>Binary code</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td><mark class="blue">LDI</mark> R16, 0x0F</td>
+          <td>1110 0011 1110 1000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><mark class="blue">ANDI</mark>R16, 0xAA</td>
+          <td>0111 1010 0000 1010</td>
+          <td>R16=0b00001010</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><mark class="blue">LSR</mark> R16;</td>
+          <td>1001 0101 0000 0110</td>
+          <td>R16=0b00000101/td></td>
+        </tr>
+      </table>
+    </details>
+
+    <p><br /><br /></p>
+
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Assembly</th>
+        <th>Binary code</th>
+        <th>Binary code</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td><mark class="blue">LDI</mark> R30, 56</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><mark class="blue">INC</mark>R30</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><mark class="blue">LSL</mark> R30;</td>
+        <td></td>
+        <td>
+          (opcode is similar to <mark class="blue">ADD</mark>, why is that?)
+        </td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Assembly</th>
+          <th>Binary code</th>
+          <th>Binary code</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td><mark class="blue">LDI</mark> R30, 56</td>
+          <td>1110 0011 1110 1000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><mark class="blue">INC</mark>R30</td>
+          <td>1001 0101 1110 0011</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><mark class="blue">LSL</mark> R30;</td>
+          <td>0000 1111 1110 1110</td>
+          <td>
+            because LSL is the same as x2. And adding with the same number twice
+            is also like x2
+          </td>
+        </tr>
+      </table>
+    </details>
+
+    <p><br /><br /></p>
+
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Assembly</th>
+        <th>Binary code</th>
+        <th>Binary code</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td><mark class="blue">LDI</mark> R30, 32</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><mark class="blue">NEG</mark>R30</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><mark class="blue">INC</mark> R30;</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><mark class="blue">COM</mark> R30;</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Assembly</th>
+          <th>Binary code</th>
+          <th>Binary code</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td><mark class="blue">LDI</mark> R30, 32</td>
+          <td>1110 0010 1110 0000</td>
+          <td>R30=32</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><mark class="blue">NEG</mark>R30</td>
+          <td>1001 0101 1110 0001</td>
+          <td>
+            R30=-32 <br />
+            Or 0b11100000 as:<br />
+            (32= 0b 0010 0000<br />
+            1. com 0b 1101 1111<br />
+            2. com 0b 1110 0000)<br />
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><mark class="blue">INC</mark> R30;</td>
+          <td>1001 0101 1110 0011</td>
+          <td>R30=-31 Or 0b11100001</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><mark class="blue">COM</mark> R30;</td>
+          <td>1001 0101 1110 0000</td>
+          <td>R30 = 0b00011110 Or R30=30</td>
+        </tr>
+      </table>
+    </details>
+
+    <table>
+      <tr>
+        <th>Address</th>
+        <th>Assembly</th>
+        <th>Binary code</th>
+        <th>Binary code</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td><mark class="blue">LDI</mark> R30, 0xF0</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><mark class="blue">LDI</mark>R31, 4</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><mark class="blue">MUL</mark> R30.R31;</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><mark class="blue">MOV</mark> R30, R0;</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><mark class="blue">MOV</mark> R31, R1;</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    What does R30 and R31 contain in the end?<br />
+
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Assembly</th>
+          <th>Binary code</th>
+          <th>Binary code</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td><mark class="blue">LDI</mark> R30, 0xF0</td>
+          <td>
+            0xefe0 <br />
+            0b1110 1111 1110 0000
+          </td>
+          <td>R30=240</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><mark class="blue">LDI</mark>R31, 4</td>
+          <td>
+            0xe0f4 <br />
+            0b1110 0000 1111 0100
+          </td>
+          <td>R31=4</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><mark class="blue">MUL</mark> R30.R31;</td>
+          <td>
+            0x9fef <br />
+            0b1001 1111 1110 1111
+          </td>
+          <td>
+            4*240=960 <br />
+            The result is stored in R0 and R1 since it needs 2 registers to
+            store such a big number. <br />
+            940=0b<mark class="green">0000 0011</mark>
+            <mark class="yellow">1100 0000</mark> (green in R1 and yellow in R0)
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><mark class="blue">MOV</mark> R30, R0;</td>
+          <td>
+            0x2de0 <br />
+            0b0010 1101 1110 0000
+          </td>
+          <td>R30 = lowbyte(960)=192</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><mark class="blue">MOV</mark> R31, R1;</td>
+          <td>
+            0x2df1 <br />
+            0010 1101 1111 0001
+          </td>
+          <td>R31 = highbyte(960)=3</td>
+        </tr>
+      </table>
+    </details>
+
+    <h2>3. More Assembly</h2>
+    <p>
+      TASK 3.1: R25 contains the value 100. R26 contains the value 200. Write
+      some assembly code that swaps the 2 values.
+    </p>
+    <details>
+      <summary>
+        <mark> Click here to see the solution</mark>
+      </summary>
+      <code>
+        <mark class="blue">LDI</mark> R25, 100 <br />
+        <mark class="blue">LDI</mark> r26, 200 <br />
+
+        <mark class="blue">MOV</mark> r27, r26 <br />
+        <mark class="blue">MOV</mark> r26, r25 <br />
+        <mark class="blue">MOV</mark> r25, r27
+      </code>
+    </details>
+
+<br><br><br>
+<p>TASK3.2: Write assembly code that multiplies R16 with 180 and save the result in R17 (Least significant Byte) and R18 (Most significant Byte)</p>
+<details>
+  <summary>
+    <mark> Click here to see the solution</mark>
+  </summary>
+  <code>
+    <mark class="blue">LDI</mark> r16, 3 <br />
+    <mark class="blue">LDI</mark> r17, 180 <br />
+
+    <mark class="blue">MUL</mark> r16, r17 <br />
+    <mark class="blue">MOV</mark> r17, r0 <br />
+    <mark class="blue">MOV</mark> r18, r1
+  </code>
+</details>
+
+<h2>4. Microchip studio</h2>
+Execute the instructions from 3.1 and 3.2 in microchip studio. Check that your result is as expected. 
+
+<h2>5	Questions from the book</h2>
+
+<ol> 
+  <li> What does “ALU” stand for? What is its purpose? </li>
+  <li> 	How are registers used in computer systems? </li>
+  <li> 	What is the purpose of the program counter? </li>
+  <li>What is the purpose of the instruction decoder? </li>
+  <li>True or false. Harvard architecture uses the same address and data buses to fetch both code and data.</li>
+  <li>Which register of the CPU holds the address of the instruction to be fetched? </li>
+  <li>	Which section of the CPU is responsible for performing addition? </li>
+  </ol>
+  <details>
+    <summary>
+      <mark> Click here to see the solution</mark>
+    </summary>
+    <ol> 
+      <li> Arithmetic/logic unit; it performs all arithmetic and logic operations. </li>
+      <li> 	They are used for temporary storage of information. </li>
+      <li> It holds the address of the next instruction to be executed.  </li>
+      <li>It tells the CPU what actions to perform for each instruction.  </li>
+      <li>False</li>
+      <li>PC (program counter) </li>
+      <li>	ALU (arithmetic/logic unit) </li>
+      </ol>
+  </details>
+  </body>
+</html>
