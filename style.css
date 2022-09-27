@@ -47,3 +47,26 @@ mark.yellow {
     color: #00eb1f;
     background: none;
   }
+
+  body {
+    counter-reset: chapter 0 section 0;
+  }
+  h1{
+      counter-increment: chapter;
+  }
+  h2 {
+    counter-reset: slide 0;
+    counter-increment: section;
+  }
+  h3 {
+    counter-increment: slide;
+  }
+  h1:before {
+    content: counter(chapter)". ";
+  }
+  h2:before {
+    content:  counter(section)"  ";
+  }
+  h3:before {
+    content: counter(section)"." counter(slide)" ";
+  }
