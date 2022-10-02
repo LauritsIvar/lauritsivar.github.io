@@ -1,592 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Laurits Ivar" />
+    <meta charset="UTF-8" >
+    <meta name="author" content="Laurits Ivar" >
     <meta
       name="description"
-      content="This page contains CAO exercises to lecture 4"
-    />
+      content="This page contains CAO exercises to lecture 6">
     <title>CAO exercises</title>
     <link
       rel="icon"
       href="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
-    />
-    <link rel="stylesheet" href="style.css" />
+    >
+    <link rel="stylesheet" href="style.css" >
   </head>
   <body>
     <a href="..">go back</a>
     <h2>Turn on the test LED</h2>
 
     <p>
-      The test LED is located on port B bit nr. 7 (PB7) <br>
-      This picture shows where PB7 is placed: <br>
-      <img src="ardunio_mega_pinout.png" alt="" style="width:400px;height:300px;"> 
-      <br> <a
-        href="ardunio_mega_pinout.png"
-        target="_blank"
-        >Click here to open the picture in a new tab:</a> <br> <br>
-      <p>
-      Since it is a port the <mark class="blue">OUT</mark>instruction can be used. </p>
+      The test LED is located on port B bit nr. 7 (PB7) <br />
+      This picture shows where PB7 is placed: <br />
+      <img
+        src="ardunio_mega_pinout.png"
+        alt=""
+        style="width: 400px; height: 300px"
+      >
+      <br >
+      <a href="ardunio_mega_pinout.png" target="_blank"
+        >Click here to open the picture in a new tab:</a>
+      <br >
+      <br >
+    </p>
 
-      <h3>TASK: Turn ON the testLED. Start by doing it in the simulator. Afterward do it IRL</h3>
-      <details>
-        <summary><mark> Click here to see the solution</mark></summary>
-        <hr>
-        <code>
-          <mark class="blue">LDI</mark> r16, 0b10000000 <br>
-          <mark class="blue">out</mark> ddrb, r16 <mark class="green">; set bit 7 on PB to be an Output pin.</mark>  <br>
-            <mark class="blue">out</mark> portb, r16 <mark class="green">; set bit 7 on portB to be high (to turn on the TEST LED).</mark> <br>
+    <p>
+      Since it is a port the <mark class="blue">OUT</mark>instruction can be
+      used.
+    </p>
 
-forever: <mark class="green">; loop here forever, just to make sure that the CPU aren't doing anything else </mark><br>
-<mark class="blue">jmp</mark> forever 
+    <h3>
+      TASK: Turn ON the testLED. Start by doing it in the simulator. Afterward
+      do it IRL
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        <mark class="blue">LDI</mark> r16, 0b10000000 <br />
+        <mark class="blue">out</mark> ddrb, r16
+        <mark class="green">; set bit 7 on PB to be an Output pin.</mark> <br >
+        <mark class="blue">out</mark> portb, r16
+        <mark class="green"
+          >; set bit 7 on portB to be high (to turn on the TEST LED).</mark
+        >
+        <br />
 
-        </code>
-        <hr>
-      </details>
+        forever:
+        <mark class="green"
+          >; loop here forever, just to make sure that the CPU aren't doing
+          anything else </mark
+        ><br />
+        <mark class="blue">jmp</mark> forever
+      </code>
+      <hr />
+    </details>
 
-      <br>
-      <h3>TASK: Turn OFF the testLED. Start by doing it in the simulator. Afterward do it IRL</h3>
-      <details>
-        <summary><mark> Click here to see the solution</mark></summary>
-        <hr>
-        <code>
-          <mark class="blue">LDI</mark> r16, 0b10000000 <br>
-          <mark class="blue">out</mark> ddrb, r16 <mark class="green">; set bit 7 on PB to be an Output pin.</mark>  <br>
-          <mark class="blue">LDI</mark> r16, 0 <br>
-            <mark class="blue">out</mark> portb, r16 <mark class="green">; set bit 7 on portB to be low (to turn off the TEST LED).</mark> <br>
+    <br />
+    <h3>
+      TASK: Turn OFF the testLED. Start by doing it in the simulator. Afterward
+      do it IRL
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        <mark class="blue">LDI</mark> r16, 0b10000000 <br />
+        <mark class="blue">out</mark> ddrb, r16
+        <mark class="green">; set bit 7 on PB to be an Output pin.</mark> <br >
+        <mark class="blue">LDI</mark> r16, 0 <br />
+        <mark class="blue">out</mark> portb, r16
+        <mark class="green"
+          >; set bit 7 on portB to be low (to turn off the TEST LED).</mark
+        >
+        <br />
 
-forever: <mark class="green">; loop here forever, just to make sure that the CPU aren't doing anything else </mark><br>
-<mark class="blue">jmp</mark> forever 
-
-        </code>
-        <hr>
-      </details>
-
-
+        forever:
+        <mark class="green"
+          >; loop here forever, just to make sure that the CPU aren't doing
+          anything else </mark
+        ><br />
+        <mark class="blue">jmp</mark> forever
+      </code>
+      <hr />
+    </details>
 
     <h2>External LED</h2>
     <p>
-      Connect a LED in series with a 220ohm resistor to PA0. Look at the picture above to see where PA0 is located. 
+      Connect a LED in series with a 220ohm resistor to PA0. Look at the picture
+      above to see where PA0 is located.
     </p>
 
+    <h3>
+      TASK: Turn ON the testLED. Start by doing it in the simulator. Afterward
+      do it IRL
+    </h3>
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
-      <p>256*1024*8=2097152</p>
-    </details>
-
-    <p><br />TASK 2.2: How many addresses does the flash have?</p>
-    <details>
-      <summary><mark> Click here to see the solution</mark></summary>
-      <p>(256*1024)/2=131072</p>
-    </details>
-
-    <p><br /><br /><br /></p>
-    <hr />
-    <h2>3. Assembly language</h2>
-
-    <p>
-      In the following you have to look in the instruction set, which can be
-      found
-      <a
-        href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf"
-        target="_blank"
-        >here:</a
-      >
-      The assemblers job is to translate assembly language into Machine code.
-      <br />
-      Fill out the following tables:
-    </p>
-    <table>
-      <tr>
-        <th>Address</th>
-        <th>Assembly</th>
-        <th>Binary code</th>
-        <th>Binary code</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td><mark class="blue">LDI</mark> R17, 101</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td><mark class="blue">LDI</mark> R18, 153</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><mark class="blue">ADD</mark> R17, R18</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    <details>
-      <summary>
-        <mark> Click here to see the solution</mark>
-      </summary>
-      <table>
-        <tr>
-          <th>Address</th>
-          <th>Assembly</th>
-          <th>Binary code</th>
-          <th>Binary code</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td><mark class="blue">LDI</mark> R17, 101</td>
-          <td>1110 0110 0001 0101</td>
-          <td>R17=101</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><mark class="blue">LDI</mark> R18, 153</td>
-          <td>1110 1001 0010 1001</td>
-          <td>R18=153</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><mark class="blue">ADD</mark> R17, R18</td>
-          <td>0000 1111 0001 0010</td>
-          <td>R17=254 abd R18 is still =153</td>
-        </tr>
-      </table>
-    </details>
-
-    <p><br /><br /></p>
-
-    <table>
-      <tr>
-        <th>Address</th>
-        <th>Assembly</th>
-        <th>Binary code</th>
-        <th>Binary code</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td><mark class="blue">LDI</mark> R16, 0b10000011</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td><mark class="blue">LDI</mark>R17, 128</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><mark class="blue">ADD</mark> R16, R17;</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    <details>
-      <summary>
-        <mark> Click here to see the solution</mark>
-      </summary>
-      <table>
-        <tr>
-          <th>Address</th>
-          <th>Assembly</th>
-          <th>Binary code</th>
-          <th>Binary code</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td><mark class="blue">LDI</mark> R16, 0b10000011</td>
-          <td>1110 1000 0000 0011</td>
-          <td>R16 = 131</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><mark class="blue">LDI</mark>R17, 128</td>
-          <td>1110 1000 0001 0000</td>
-          <td>R17=128</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><mark class="blue">ADD</mark> R16, R17;</td>
-          <td>0000 1111 0000 0001</td>
-          <td>R16=3, as overfloat has happened.</td>
-        </tr>
-      </table>
-    </details>
-
-    <p><br /><br /></p>
-
-    <table>
-      <tr>
-        <th>Address</th>
-        <th>Assembly</th>
-        <th>Binary code</th>
-        <th>Binary code</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td><mark class="blue">LDI</mark> R16, 0x0F</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td><mark class="blue">ANDI</mark>R16, 0xAA</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><mark class="blue">LSR</mark> R16;</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    <details>
-      <summary>
-        <mark> Click here to see the solution</mark>
-      </summary>
-      <table>
-        <tr>
-          <th>Address</th>
-          <th>Assembly</th>
-          <th>Binary code</th>
-          <th>Binary code</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td><mark class="blue">LDI</mark> R16, 0x0F</td>
-          <td>1110 0011 1110 1000</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><mark class="blue">ANDI</mark>R16, 0xAA</td>
-          <td>0111 1010 0000 1010</td>
-          <td>R16=0b00001010</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><mark class="blue">LSR</mark> R16;</td>
-          <td>1001 0101 0000 0110</td>
-          <td>R16=0b00000101/td></td>
-        </tr>
-      </table>
-    </details>
-
-    <p><br /><br /></p>
-
-    <table>
-      <tr>
-        <th>Address</th>
-        <th>Assembly</th>
-        <th>Binary code</th>
-        <th>Binary code</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td><mark class="blue">LDI</mark> R30, 56</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td><mark class="blue">INC</mark>R30</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><mark class="blue">LSL</mark> R30;</td>
-        <td></td>
-        <td>
-          (opcode is similar to <mark class="blue">ADD</mark>, why is that?)
-        </td>
-      </tr>
-    </table>
-
-    <details>
-      <summary>
-        <mark> Click here to see the solution</mark>
-      </summary>
-      <table>
-        <tr>
-          <th>Address</th>
-          <th>Assembly</th>
-          <th>Binary code</th>
-          <th>Binary code</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td><mark class="blue">LDI</mark> R30, 56</td>
-          <td>1110 0011 1110 1000</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><mark class="blue">INC</mark>R30</td>
-          <td>1001 0101 1110 0011</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><mark class="blue">LSL</mark> R30;</td>
-          <td>0000 1111 1110 1110</td>
-          <td>
-            because LSL is the same as x2. And adding with the same number twice
-            is also like x2
-          </td>
-        </tr>
-      </table>
-    </details>
-
-    <p><br /><br /></p>
-
-    <table>
-      <tr>
-        <th>Address</th>
-        <th>Assembly</th>
-        <th>Binary code</th>
-        <th>Binary code</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td><mark class="blue">LDI</mark> R30, 32</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td><mark class="blue">NEG</mark>R30</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><mark class="blue">INC</mark> R30;</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td><mark class="blue">COM</mark> R30;</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-
-    <details>
-      <summary>
-        <mark> Click here to see the solution</mark>
-      </summary>
-      <table>
-        <tr>
-          <th>Address</th>
-          <th>Assembly</th>
-          <th>Binary code</th>
-          <th>Binary code</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td><mark class="blue">LDI</mark> R30, 32</td>
-          <td>1110 0010 1110 0000</td>
-          <td>R30=32</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><mark class="blue">NEG</mark>R30</td>
-          <td>1001 0101 1110 0001</td>
-          <td>
-            R30=-32 <br />
-            Or 0b11100000 as:<br />
-            (32= 0b 0010 0000<br />
-            1. com 0b 1101 1111<br />
-            2. com 0b 1110 0000)<br />
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><mark class="blue">INC</mark> R30;</td>
-          <td>1001 0101 1110 0011</td>
-          <td>R30=-31 Or 0b11100001</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><mark class="blue">COM</mark> R30;</td>
-          <td>1001 0101 1110 0000</td>
-          <td>R30 = 0b00011110 Or R30=30</td>
-        </tr>
-      </table>
-    </details>
-
-    <table>
-      <tr>
-        <th>Address</th>
-        <th>Assembly</th>
-        <th>Binary code</th>
-        <th>Binary code</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td><mark class="blue">LDI</mark> R30, 0xF0</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td><mark class="blue">LDI</mark>R31, 4</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><mark class="blue">MUL</mark> R30.R31;</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td><mark class="blue">MOV</mark> R30, R0;</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td><mark class="blue">MOV</mark> R31, R1;</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    What does R30 and R31 contain in the end?<br />
-
-    <details>
-      <summary>
-        <mark> Click here to see the solution</mark>
-      </summary>
-      <table>
-        <tr>
-          <th>Address</th>
-          <th>Assembly</th>
-          <th>Binary code</th>
-          <th>Binary code</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td><mark class="blue">LDI</mark> R30, 0xF0</td>
-          <td>
-            0xefe0 <br />
-            0b1110 1111 1110 0000
-          </td>
-          <td>R30=240</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><mark class="blue">LDI</mark>R31, 4</td>
-          <td>
-            0xe0f4 <br />
-            0b1110 0000 1111 0100 
-          </td>
-          <td>R31=4</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><mark class="blue">MUL</mark> R30.R31;</td>
-          <td>
-            0x9fef <br />
-            0b1001 1111 1110 1111
-          </td>
-          <td>
-            4*240=960 <br />
-            The result is stored in R0 and R1 since it needs 2 registers to
-            store such a big number. <br />
-            940=0b<mark class="green">0000 0011</mark>
-            <mark class="yellow">1100 0000</mark> (green in R1 and yellow in R0)
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><mark class="blue">MOV</mark> R30, R0;</td>
-          <td>
-            0x2de0 <br />
-            0b0010 1101 1110 0000
-          </td>
-          <td>R30 = lowbyte(960)=192</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td><mark class="blue">MOV</mark> R31, R1;</td>
-          <td>
-            0x2df1 <br />
-            0010 1101 1111 0001
-          </td>
-          <td>R31 = highbyte(960)=3</td>
-        </tr>
-      </table>
-    </details>
-
-    <h2>3. More Assembly</h2>
-    <p>
-      TASK 3.1: R25 contains the value 100. R26 contains the value 200. Write
-      some assembly code that swaps the 2 values.
-    </p>
-    <details>
-      <summary>
-        <mark> Click here to see the solution</mark>
-      </summary>
+      <hr />
       <code>
-        <mark class="blue">LDI</mark> R25, 100 <br />
-        <mark class="blue">LDI</mark> r26, 200 <br />
+        <mark class="blue">LDI</mark> r16, 0b00000001
+        <mark class="green">; or just LDI R16, 1.</mark><br />
+        <mark class="blue">out</mark> ddra, r16
+        <mark class="green">; set bit 0 on PA to be an Output pin.</mark> <br >
+        <mark class="blue">out</mark> porta, r16
+        <mark class="green"
+          >; set bit 0 on porta to be high (to turn on the external LED
+          on).</mark
+        >
+        <br />
 
-        <mark class="blue">MOV</mark> r27, r26 <br />
-        <mark class="blue">MOV</mark> r26, r25 <br />
-        <mark class="blue">MOV</mark> r25, r27
+        forever:
+        <mark class="green"
+          >; loop here forever, just to make sure that the CPU aren't doing
+          anything else </mark
+        ><br />
+        <mark class="blue">jmp</mark> forever
       </code>
+      <br />
+      <br />
+      <img src="externalLED.bmp" alt="grag" />
+      <hr />
     </details>
 
-<br><br><br>
-<p>TASK3.2: Write assembly code that multiplies R16 with 180 and save the result in R17 (Least significant Byte) and R18 (Most significant Byte)</p>
-<details>
-  <summary>
-    <mark> Click here to see the solution</mark>
-  </summary>
-  <code>
-    <mark class="blue">LDI</mark> r16, 3 <br />
-    <mark class="blue">LDI</mark> r17, 180 <br />
+    <h3>
+      TASK: Turn OFF the testLED. Start by doing it in the simulator. Afterward
+      do it IRL
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        <mark class="blue">LDI</mark> r16, 0b00000001
+        <mark class="green">; or just LDI R16, 1.</mark><br />
+        <mark class="blue">out</mark> ddra, r16
+        <mark class="green">; set bit 0 on PA to be an Output pin.</mark> <br >
+        <mark class="blue">LDI</mark> r16, 0b00000000
+        <mark class="green">; or just LDI R16, 0.</mark><br />
+        <mark class="blue">out</mark> porta, r16
+        <mark class="green"
+          >; clear bit 0 on porta to 0 (to turn on the external LED OFF).</mark
+        >
+        <br >
 
-    <mark class="blue">MUL</mark> r16, r17 <br />
-    <mark class="blue">MOV</mark> r17, r0 <br />
-    <mark class="blue">MOV</mark> r18, r1
-  </code>
-</details>
+        forever:
+        <mark class="green"
+          >; loop here forever, just to make sure that the CPU aren't doing
+          anything else </mark
+        ><br >
+        <mark class="blue">jmp</mark> forever
+      </code>
+      <hr />
+    </details>
 
-<h2>4. Microchip studio</h2>
-Execute the instructions from 3.1 and 3.2 in microchip studio. Check that your result is as expected. 
+    <h3>
+      Connect at least 4 LEDs to ports of your own choosing, and turn 2 of them
+      On and 2 of them Off
+    </h3>
 
-<h2>5	Questions from the book</h2>
+    <h2>Simulations</h2>
+    <h3>
+      Write assembly code that add the two values 0x16 and 0xCD. Place the
+      result in R19
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        <mark class="blue">LDI</mark> R18, 0x16<br >
+        <mark class="blue">LDI</mark> R19, 0xCD <br >
+        <mark class="blue">ADD</mark> r19, R18
+        <mark class="green">; The result is replacing 0xCD in R19</mark><br >
+      </code>
+      <hr />
+    </details>
 
-<ol> 
-  <li> What does “ALU” stand for? What is its purpose? </li>
-  <li> 	How are registers used in computer systems? </li>
-  <li> 	What is the purpose of the program counter? </li>
-  <li>What is the purpose of the instruction decoder? </li>
-  <li>True or false. Harvard architecture uses the same address and data buses to fetch both code and data.</li>
-  <li>Which register of the CPU holds the address of the instruction to be fetched? </li>
-  <li>	Which section of the CPU is responsible for performing addition? </li>
-  </ol>
-  <details>
-    <summary>
-      <mark> Click here to see the solution</mark>
-    </summary>
-    <ol> 
-      <li> Arithmetic/logic unit; it performs all arithmetic and logic operations. </li>
-      <li> 	They are used for temporary storage of information. </li>
-      <li> It holds the address of the next instruction to be executed.  </li>
-      <li>It tells the CPU what actions to perform for each instruction.  </li>
-      <li>False</li>
-      <li>PC (program counter) </li>
-      <li>	ALU (arithmetic/logic unit) </li>
-      </ol>
-  </details>
+    <h3>
+      True or False> No value can be moved directly into the GPR's (Generel
+      purpose registers)
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <p>false <br /></p>
+      <hr />
+    </details>
+
+    <h3>
+      What is the largest hex value that can be moved to a 8-bit registers? And
+      what is the decimal equivalent of that hex value?
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <p>0xFF, which is 255 in decimal <br /></p>
+      <hr />
+    </details>
+
+    <h3>
+      True or false: No value can be loaded directly from program memory into
+      internal SRAM
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+  
+        <p>
+          True. First it has to be loaded into the GPR. Afterward it can go to
+          the SRAM <br />
+        </p>
+  
+      <hr />
+    </details>
+    <h3>
+      Whats wrong with the following code? <mark class="blue">STS</mark> 0x0200,
+      0xAA
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+        <p>
+          Syntax... STS can put the value of a GPR into address 0x0200. It
+          cannot put a value directly <br />
+        </p>
+
+      <hr />
+    </details>
+    <h3>
+      Whats wrong with the following code? <mark class="blue">STS</mark> PORTA,
+      R16
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+        <p>
+          The label PORTA belongs to a different memory mapping. So this code
+          will put the value of R16 into SRAM address 2, but this is not the I/O
+          register <br />
+        </p>
+
+      <hr />
+    </details>
+
+    <h3>
+      Whats the C and Z flag after the following code has been executed.
+      Afterward, test it using the simulator.
+    </h3>
+    <code>
+      <mark class="blue">LDI</mark> R20, 0x9F<br />
+      <mark class="blue">LDI</mark> R21, 0x61 <br />
+      <mark class="blue">ADD</mark> R20, R21 <br />
+    </code>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+        <p>Z=1, C=1 <br /></p>
+
+      <hr />
+    </details>
+
+    <code>
+      <mark class="blue">LDI</mark> R20, 0x82<br />
+      <mark class="blue">LDI</mark> R21, 0x22 <br />
+      <mark class="blue">ADD</mark> R20, R21 <br />
+    </code>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+ 
+        <p>Z=0, C=0 <br /></p>
+ 
+      <hr />
+    </details>
+
+    <code>
+      <mark class="blue">LDI</mark> R18, 0x67<br />
+      <mark class="blue">LDI</mark> R21, 157 <br />
+      <mark class="blue">ADD</mark> R18, R21 <br />
+    </code>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+    
+        <p>Z=0, C=1 <br /></p>
+
+      <hr />
+    </details>
+
+    <h3>
+      What will R16 contain after the following code has been executed?
+      Afterward, check it in the simulator:
+    </h3>
+    <code>
+      <mark class="blue">LDI</mark> R16, 0xAA<br />
+      <mark class="blue">LDI</mark> R21, 0x55 <br />
+      <mark class="blue">AND</mark> R16, R21 <br />
+    </code>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+        <p>R16=0 <br /></p>
+ 
+      <hr />
+    </details>
+
+    <code>
+      <br />
+      <mark class="blue">LDI</mark> R16, 0xAA<br />
+      <mark class="blue">LDI</mark> R21, 0x55 <br />
+      <mark class="blue">OR</mark> R16, R21 <br />
+    </code>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+    
+        <p>R16=255 <br /></p>
+   
+      <hr />
+    </details>
+
+    <h3>
+      Try out the following instructions in the simulator and see if they do
+      what you expect.
+    </h3>
+    <code>
+      <mark class="blue">EOR</mark> <br />
+      <mark class="blue">INC</mark><br />
+      <mark class="blue">DEC</mark><br />
+      <mark class="blue">NEG</mark><br />
+      <mark class="blue">SUB</mark><br />
+    </code>
+
+    <h3>Create a program that adds two 16 bits numbers</h3>
+    <p>
+      HINT: Hint 1: The keywords HIGH() and LOW() takes the 8 MSBs (Most
+      Significant Bit) and the 8 LSBs (Least Significant Bit) of the 16 bits
+      number. (e.g ldi Rd, HIGH(0xCA9) = ldi Rd, 0x0C and ldi Rd, LOW(0xCA9) =
+      ldi Rd, 0xA9 ) <br />
+      Hint 2: Use ADC (add with carry), when adding the most significant byte.
+    </p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        <mark class="green">; this program adds 1000 with 2000</mark> <br />
+        <mark class="blue">ldi </mark>r17, HIGH(1000)
+        <mark class="green">; High(1000) = 0b0000 0011</mark> <br />
+        <mark class="brlue">ldi </mark>r16, LOW(1000)
+        <mark class="green">; LOW(1000) = 0b1110 1000</mark><br />
+
+        <mark class="blue">ldi </mark> r21, HIGH(2000)
+        <mark class="green">; High(2000) = 0b0000 0111 </mark> <br />
+        <mark class="blue">ldi </mark> r20, LOW(2000)<mark class="green"
+          >; low(2000) = 0b1101 0000</mark
+        ><br />
+
+        <mark class="blue">ADD </mark> r16,r20<mark class="green">
+          ; R16= 0b1011 1000</mark
+        ><br />
+        <mark class="blue">ADC </mark> r17,r21
+        <mark class="green">; R17 = 0b0000 1011</mark><br />
+      </code>
+      <hr />
+    </details>
   </body>
 </html>
