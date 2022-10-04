@@ -36,7 +36,7 @@
       Since it is a port the <mark class="blue">OUT</mark>instruction can be
       used.
     </p>
-
+    <br >
     <h3>
       TASK: Turn ON the testLED. Start by doing it in the simulator. Afterward
       do it IRL
@@ -64,7 +64,7 @@
       <hr />
     </details>
 
-    <br />
+    <br /><br >
     <h3>
       TASK: Turn OFF the testLED. Start by doing it in the simulator. Afterward
       do it IRL
@@ -92,20 +92,20 @@
       </code>
       <hr />
     </details>
-
+    <br >
     <h2>External LED</h2>
     <p>
       Connect a LED in series with a 220ohm resistor to PA0. Look at the picture
       above to see where PA0 is located.
     </p>
-
-    <h3>
+    <br >
+    <br > <h3>
       TASK: Turn ON the testLED. Start by doing it in the simulator. Afterward
       do it IRL
     </h3>
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
-      <hr />
+      <br > <hr />
       <code>
         <mark class="blue">LDI</mark> r16, 0b00000001
         <mark class="green">; or just LDI R16, 1.</mark><br />
@@ -128,16 +128,16 @@
       <br />
       <br />
       <img src="externalLED.bmp" alt="grag" />
-      <hr />
+      <br > <hr />
     </details>
 
-    <h3>
+    <br > <h3>
       TASK: Turn OFF the testLED. Start by doing it in the simulator. Afterward
       do it IRL
     </h3>
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
-      <hr />
+      <br > <hr />
       <code>
         <mark class="blue">LDI</mark> r16, 0b00000001
         <mark class="green">; or just LDI R16, 1.</mark><br />
@@ -158,60 +158,60 @@
         ><br >
         <mark class="blue">jmp</mark> forever
       </code>
-      <hr />
+      <br > <hr />
     </details>
 
-    <h3>
+    <br > <h3>
       Connect at least 4 LEDs to ports of your own choosing, and turn 2 of them
       On and 2 of them Off
     </h3>
 
-    <h2>Simulations</h2>
-    <h3>
+    <br > <h2>Simulations</h2>
+     <h3>
       Write assembly code that add the two values 0x16 and 0xCD. Place the
       result in R19
     </h3>
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
-      <hr />
+       <hr />
       <code>
         <mark class="blue">LDI</mark> R18, 0x16<br >
         <mark class="blue">LDI</mark> R19, 0xCD <br >
         <mark class="blue">ADD</mark> r19, R18
         <mark class="green">; The result is replacing 0xCD in R19</mark><br >
       </code>
-      <hr />
+      <br > <hr />
     </details>
 
-    <h3>
+    <br > <h3>
       True or False> No value can be moved directly into the GPR's (Generel
       purpose registers)
     </h3>
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
-      <hr />
+      <br > <hr />
       <p>false <br /></p>
-      <hr />
+      <br > <hr />
     </details>
 
-    <h3>
+    <br > <h3>
       What is the largest hex value that can be moved to a 8-bit registers? And
       what is the decimal equivalent of that hex value?
     </h3>
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
-      <hr />
+      <br > <hr />
       <p>0xFF, which is 255 in decimal <br /></p>
-      <hr />
+      <br > <hr />
     </details>
-
-    <h3>
+<br>
+    <br > <h3>
       True or false: No value can be loaded directly from program memory into
       internal SRAM
     </h3>
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
-      <hr />
+      <br > <hr />
   
         <p>
           True. First it has to be loaded into the GPR. Afterward it can go to
@@ -220,6 +220,7 @@
   
       <hr />
     </details>
+    <br>
     <h3>
       Whats wrong with the following code? <mark class="blue">STS</mark> 0x0200,
       0xAA
@@ -235,6 +236,7 @@
 
       <hr />
     </details>
+    <br>
     <h3>
       Whats wrong with the following code? <mark class="blue">STS</mark> PORTA,
       R16
@@ -251,7 +253,7 @@
 
       <hr />
     </details>
-
+<br>
     <h3>
       Whats the C and Z flag after the following code has been executed.
       Afterward, test it using the simulator.
@@ -269,6 +271,7 @@
 
       <hr />
     </details>
+    <br><br>
 
     <code>
       <mark class="blue">LDI</mark> R20, 0x82<br />
@@ -283,7 +286,7 @@
  
       <hr />
     </details>
-
+<br><br>
     <code>
       <mark class="blue">LDI</mark> R18, 0x67<br />
       <mark class="blue">LDI</mark> R21, 157 <br />
@@ -298,7 +301,7 @@
       <hr />
     </details>
 
-    <h3>
+    <br > <h3>
       What will R16 contain after the following code has been executed?
       Afterward, check it in the simulator:
     </h3>
@@ -331,7 +334,7 @@
       <hr />
     </details>
 
-    <h3>
+    <br > <h3>
       Try out the following instructions in the simulator and see if they do
       what you expect.
     </h3>
@@ -343,7 +346,7 @@
       <mark class="blue">SUB</mark><br />
     </code>
 
-    <h3>Create a program that adds two 16 bits numbers</h3>
+    <br > <h3>Create a program that adds two 16 bits numbers</h3>
     <p>
       HINT: Hint 1: The keywords HIGH() and LOW() takes the 8 MSBs (Most
       Significant Bit) and the 8 LSBs (Least Significant Bit) of the 16 bits
