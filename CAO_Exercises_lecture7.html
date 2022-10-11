@@ -446,5 +446,58 @@
    
         <hr />
       </details>
+
+<h2>Make an external LED blink with 0.5 Hz</h2>
+<p>
+  •	Connect a LED in series with a 220ohm resistor to PORTA0 <br>
+
+•	Make the external LED blink <br>
+</p>
+  <br><br>
+  <details>
+    <summary><mark> Click here to see the solution</mark></summary>
+    <hr />
+
+
+    <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+      <span style="color: #008800; font-style: italic; background-color: #0f140f">;0.5Hz means that it should blink once every 2s. This can be done by turning the LED on in 1s, and then turn is of in 1s. </span>
+      <span style="color: #008800; font-style: italic; background-color: #0f140f">;The following code turns the LED on, then calls a 1s delay, then turn the LED off, then calls the 1s delay, and then repeat. </span>
+      
+      <span style="color: #008800; font-style: italic; background-color: #0f140f">; initialize the LED</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r16</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0b00000001</span>
+      <span style="color: #ff0086; font-weight: bold">out</span> <span style="color: #fb660a">ddra</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r16</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r17</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0</span>
+      
+      <span style="color: #ffffff">forever:</span>
+      <span style="color: #ff0086; font-weight: bold">out</span> <span style="color: #fb660a">porta</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r16</span>
+      <span style="color: #ff0086; font-weight: bold">call</span> <span style="color: #fb660a">delay</span>
+      <span style="color: #ff0086; font-weight: bold">out</span> <span style="color: #fb660a">porta</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r17</span>
+      <span style="color: #ff0086; font-weight: bold">call</span> <span style="color: #fb660a">delay</span>
+      <span style="color: #ff0086; font-weight: bold">jmp</span> <span style="color: #fb660a">forever</span>
+      
+      <span style="color: #ffffff">delay:</span><span style="color: #008800; font-style: italic; background-color: #0f140f">; 1s = 16000000 cycles. (This delay is actually 1604830, but close enough)</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">100</span>
+      <span style="color: #ffffff">loop3:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r19</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">160</span>
+      <span style="color: #ffffff">loop2:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r18</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">200</span>
+      <span style="color: #ffffff">loop1:</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1000 cycles</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r18</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r19</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop2</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop3</span>
+      
+      <span style="color: #ff0086; font-weight: bold">ret</span>
+      </pre></div>
+      
+      
+
+    <hr />
+  </details>
+
   </body>
 </html>
