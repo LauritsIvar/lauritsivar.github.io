@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="author" content="Laurits Ivar" >
+    <meta
+      name="description"
+      content="This page contains CAO exercises to lecture 7">
+    <title>CAO exercises</title>
+    <link
+      rel="icon"
+      href="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
+    >
+    <link rel="stylesheet" href="style.css" >
+  </head>
+  <body>
+    <a href="..">go back</a>
+    <h2>Instructions</h2>
+
+
+    <br >
+    <h3>
+      The <mark class="blue">CALL</mark> instruction is a(n) __-bit instruction
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        4
+      </code>
+      <hr />
+    </details>
+
+    <br /><br >
+    <h3>
+      When using the <mark class="blue">CALL</mark> instruction the SP (Stack Pointer) is ________ (incremented, decremented)
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        Decremented
+      </code>
+      <hr />
+    </details>
+    <br >
+
+    <h3>
+      When using the <mark class="blue">RET</mark> instruction the SP (Stack Pointer) is ________ (incremented, decremented)
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        Incremented
+      </code>
+      <hr />
+    </details>
+    <br >
+
+    <h3>
+      How deep is the size of the stack in the AVR?
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        The stack can be as bit as its RAM memory
+      </code>
+      <hr />
+    </details>
+    <br >
+
+    <h3>
+      1.5	The minimum number of machine cycles needed to execute an AVR instruction is __.
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code>
+        1
+      </code>
+      <hr />
+    </details>
+    <br >
+
+    <h2>STACK</h2>
+    <p>
+      What will R16, R17 and R18 contain after the following code have been executed?
+    </p>
+    <br >
+    <code>
+      <mark class="blue">LDI</mark> R16, 1 <br>
+      <mark class="blue">LDI</mark> R17, 2<br>
+      <mark class="blue">LDI</mark> R18, 3<br>
+<br>
+<mark class="blue">PUSH</mark> R16<br>
+<mark class="blue">PUSH</mark> R17<br>
+<mark class="blue">PUSH</mark> R18<br>
+<br>
+<mark class="blue">POP</mark> R16<br>
+<mark class="blue">POP</mark> R17<br>
+<mark class="blue">POP</mark> R18<br>
+
+    </code>
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <br > <hr />
+      
+      <img src="pics/stacksolution12.PNG" alt="grag" />
+      <br > <hr />
+    </details>
+
+    <br > <h2>
+      Use the simulator to the following exercises
+    </h2>
+    <br>
+    <h3>Test the instructions <mark class="blue">BRNE</mark> and <mark class="blue">JMP</mark> and see that they do as you expect. </h3>
+    <br><br>
+    <h3>Create some code the repeats a <mark class="blue">NOP</mark> instruciton 100 times</h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <br > <hr />
+      <code>
+        <mark class="blue">LDI</mark> r16, 20 <br>
+        loop: <br>
+        
+        <mark class="blue">NOP <br> NOP <br>NOP <br>NOP <br>NOP <br>DEC </mark> R16 <br>
+        <mark class="blue">BRNE</mark> loop <br>
+      </code>
+      <br > <hr />
+    </details>
+
+
+    <br > <h2>Delays</h2>
+     <h3>True or False. <mark class="blue">JMP</mark> and <mark class="blue">RCAL</mark> will always take 3 machine cycles
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+       <hr />
+      <code>
+        True <br>
+      </code>
+      <a href="atmel-0856-avr-instruction-set-manual.pdf">Check the instruction within the instruction set</a>
+      <br > <hr />
+    </details>
+
+    <br > <h3>
+      True or False. <mark class="blue">BRNE</mark> always take 2 machine cycles
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <br > <hr />
+      <p>false. Only if it branched to the target address.  <br /></p>
+      <br > <hr />
+    </details>
+
+    <br > <h3>
+      How many clock cycles does the following code take?
+    </h3>
+    <code>
+      <mark class="blue">LDI</mark> R16, 0 <br>
+      <mark class="blue">NOP</mark> <br>
+      <mark class="blue">NOP</mark> <br>
+      <mark class="blue">LDS</mark> R16, 0x1000 <br>
+    </code>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <br > <hr />
+      <code>
+        <mark class="blue">LDI</mark> R16, 0<mark class="green">; 1</mark> <br>
+        <mark class="blue">NOP</mark> <mark class="green">; 1</mark><br>
+        <mark class="blue">NOP</mark><mark class="green">; 1</mark> <br>
+        <mark class="blue">LDS</mark> R16, 0x1000 <mark class="green">; 2</mark><br>
+        <mark class="green">; So in total 1+1+1+2 = 5</mark> <br>
+      </code>
+      <br > <hr />
+    </details>
+<br>
+    <br > <h3>
+      How many clock cycles does the following code take?
+    </h3>
+    <code>
+      <mark class="blue">LDI</mark> R16, 2 <br>
+      here: <br>
+      <mark class="blue">DEC</mark>R16 <br>
+      <mark class="blue">BRNE</mark> HERE<br>
+    </code>
+
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <br > <hr />
+  
+      <code>
+        <mark class="blue">LDI</mark> R16, 2 <mark class="green">; 1</mark><br>
+        here: <br>
+        <mark class="blue">DEC</mark>R16 <mark class="green">; 1</mark><br>
+        <mark class="blue">BRNE</mark> HERE<mark class="green">; 2 the first time, 1 the second time.</mark><br>
+        <mark class="green">; 1+1+2+1+1=6</mark><br>
+      </code>
+  
+      <hr />
+    </details>
+    <br>
+    <h3>
+      How many clock cycles does the following code take?
+    </h3> <br>
+<!-- https://www.commontools.org/tool/soruce-code-highlighter-20   together with language NASM, style=fruity -->
+    <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">100</span>
+      <span style="color: #ffffff">loop1:</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span> 
+      </pre></div>
+      
+      
+      
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+      <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+        <span style="color: #ffffff">delay:</span>
+        <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">100</span><span style="color: #008800; font-style: italic; background-color: #0f140f">; 1 </span>
+        <span style="color: #ffffff">loop1:</span>
+        <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>	<span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span>	<span style="color: #008800; font-style: italic; background-color: #0f140f">;1/2</span>
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1+(1+2)*100-1=300</span>
+        </pre></div>
+        
+
+      <hr />
+    </details>
+    <br>
+
+
+    <h3>
+      How many clock cycles does the following code take?
+    </h3>
+    <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+      <span style="color: #ffffff">delay:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">80</span>
+      <span style="color: #ffffff">loop1:</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      </pre></div>
+      
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+      <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+        <span style="color: #ffffff">delay:</span>
+        <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">80</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ffffff">loop1:</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;2/1</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1+(1+1+2)*80-1+1+1=322</span>
+        </pre></div>
+        
+
+      <hr />
+    </details>
+<br>
+    <h3>
+      How many clock cycles does the following code take?
+    </h3>
+    
+    <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+      <span style="color: #ffffff">delay:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">18</span> 
+      <span style="color: #ffffff">loop1:</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span> 
+      <span style="color: #ff0086; font-weight: bold">sts</span> <span style="color: #0086f7; font-weight: bold">0x1000</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r16</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      </pre></div>
+<br>      
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+      <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+        <span style="color: #ffffff">delay:</span>
+        <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">18</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ffffff">loop1:</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ff0086; font-weight: bold">sts</span> <span style="color: #0086f7; font-weight: bold">0x1000</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r16</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; 2</span>
+        <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;2/1</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;1</span>
+        
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1+(1+2+1+2)*18-1+1+1=110</span>
+        </pre></div>
+        
+
+      <hr />
+    </details>
+
+
+    <h3>
+      How many clock cycles does the following code take?
+    </h3>
+    
+    <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+      <span style="color: #ffffff">delay:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r18</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">10</span>
+      <span style="color: #ffffff">loop2:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">20</span>
+      <span style="color: #ffffff">loop1:</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r18</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop2</span>
+      </pre></div>
+      
+<br>      
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+      <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f">;((1+2)*20+3)*10=630</span>
+      </pre></div>
+      <hr />
+    </details>
+
+    <h3>
+      How many clock cycles does the following code take?
+    </h3>
+    
+    <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+      <span style="color: #ffffff">delay:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r18</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">100</span>
+      <span style="color: #ffffff">loop2:</span>
+      <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">200</span>
+      <span style="color: #ffffff">loop1:</span>
+      <span style="color: #ff0086; font-weight: bold">nop</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span>
+      <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r18</span>
+      <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop2</span>
+      </pre></div>
+      
+      
+<br>      
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+      <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f">;  ((1+1+2)*200+3)*100=80300</span>
+      </pre></div>
+      
+      <hr />
+    </details>
+
+<h3>Create a delay function that delays approximately 0.1s</h3>
+<p>HINT  the clock on the atmega2560 is 16MHz. So to create 0.1s delay you will need to run 1*10^(-3) s*16*10^6 Hz=16000 clock cycles. </p>
+    <br><br>
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+ 
+      <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"> 
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">;  First we create a delay that takes 1000 clock cycles. Then we repeat this delay 16 times. </span>
+        <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r17</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">16</span>
+        <span style="color: #ffffff">loop2:</span>
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">;Delya 1000 clck cyckles</span>
+        <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r16</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">200</span><span style="color: #008800; font-style: italic; background-color: #0f140f">; 1</span>
+        <span style="color: #ffffff">loop1:</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1</span>
+        <span style="color: #ff0086; font-weight: bold">nop</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1</span>
+        <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r16</span><span style="color: #008800; font-style: italic; background-color: #0f140f">; 1</span>
+        <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span><span style="color: #008800; font-style: italic; background-color: #0f140f">;2/1 </span>
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1+(1+1+1+2)*200-1 = 1000</span>
+        <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r17</span>
+        <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop2</span>
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">; due to the overhead of the second loop, it is not exactly 16000 (its 16048), but its close enough. </span>
+        </pre></div>
+        
+ 
+      <hr />
+    </details>
+
+    <h2>Make the TEST-LED blink, with approximately 10 Hz</h2>
+    <p>The test LED is located on port B bit nr. 7 <br>
+      Since it is a port the <mark class="blue">OUT</mark> instruction can be used
+      </p>
+      <br><br>
+      <details>
+        <summary><mark> Click here to see the solution</mark></summary>
+        <hr />
+   
+        <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f">;10Hz means that it should blink 10 times a second, or once every 0.1s. This can be done by turning the LED on in 0.05s, and then turn is of in 0.05s. </span>
+          <span style="color: #008800; font-style: italic; background-color: #0f140f">;The following code turns the LED on, then calls a 0.05s delay, then turn the LED off, then calls the .05s delay, and then repeat. </span>
+          
+          <span style="color: #008800; font-style: italic; background-color: #0f140f">; initialize the LED</span>
+          <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r16</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0b10000000</span>
+          <span style="color: #ff0086; font-weight: bold">out</span> <span style="color: #fb660a">ddrb</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r16</span>
+          <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r17</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0</span>
+          
+          <span style="color: #ffffff">forever:</span>
+          <span style="color: #ff0086; font-weight: bold">out</span> <span style="color: #fb660a">portb</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r16</span>
+          <span style="color: #ff0086; font-weight: bold">call</span> <span style="color: #fb660a">delay</span>
+          <span style="color: #ff0086; font-weight: bold">out</span> <span style="color: #fb660a">portb</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">r17</span>
+          <span style="color: #ff0086; font-weight: bold">call</span> <span style="color: #fb660a">delay</span>
+          <span style="color: #ff0086; font-weight: bold">jmp</span> <span style="color: #fb660a">forever</span>
+          
+          <span style="color: #ffffff">delay:</span><span style="color: #008800; font-style: italic; background-color: #0f140f">; 0.05s = 800000 cycles. (This delay is actually 802430, but close enough)</span>
+          <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r20</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">10</span>
+          <span style="color: #ffffff">loop3:</span>
+          <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r19</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">80</span>
+          <span style="color: #ffffff">loop2:</span>
+          <span style="color: #ff0086; font-weight: bold">ldi</span> <span style="color: #fb660a">r18</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">200</span>
+          <span style="color: #ffffff">loop1:</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; 1000 cycles</span>
+          <span style="color: #ff0086; font-weight: bold">nop</span>
+          <span style="color: #ff0086; font-weight: bold">nop</span>
+          <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r18</span>
+          <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop1</span>
+          <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r19</span>
+          <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop2</span>
+          <span style="color: #ff0086; font-weight: bold">dec</span> <span style="color: #fb660a">r20</span>
+          <span style="color: #ff0086; font-weight: bold">brne</span> <span style="color: #fb660a">loop3</span>
+          
+          <span style="color: #ff0086; font-weight: bold">ret</span>
+          </pre></div>
+          
+          
+          
+   
+        <hr />
+      </details>
+  </body>
+</html>
