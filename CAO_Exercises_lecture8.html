@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Laurits Ivar" />
+    <meta
+      name="description"
+      content="This page contains CAO exercises to lecture 7"
+    />
+    <title>CAO exercises</title>
+    <link
+      rel="icon"
+      href="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="..">go back</a>
+    <h2><mark class="blue">IN</mark>put</h2>
+    <h3>
+      Connect a wire to PA0. Create a program that turn the testLED (PB7) on
+      when the wire is connected to 5V and turn the testLED Off when the wire is
+      connected to ground.
+    </h3>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <div
+        style="
+          background: #111111;
+          overflow: auto;
+          width: auto;
+          border: solid gray;
+          border-width: 0.1em 0.1em 0.1em 0.8em;
+          padding: 0.2em 0.6em;
+        "
+      >
+        <pre style="margin: 0; line-height: 125%"> 
+        <span style="color: #ff0086; font-weight: bold">LDI</span> <span style="color: #fb660a">R16</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0b10000000</span><span style="color: #008800; font-style: italic; background-color: #0f140f">; on</span>
+        <span style="color: #ff0086; font-weight: bold">LDI</span> <span style="color: #fb660a">R17</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; off</span>
+        
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">; initialize</span>
+        <span style="color: #ff0086; font-weight: bold">OUT</span> <span style="color: #fb660a">DDRB</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">R16</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; LED is an Output</span>
+        <span style="color: #ff0086; font-weight: bold">OUT</span> <span style="color: #fb660a">DDRA</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">R17</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; Switch is an Input</span>
+        <span style="color: #ffffff">ever:</span>
+        <span style="color: #ff0086; font-weight: bold">SBIC</span> <span style="color: #fb660a">PINA</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; Skip if Switch is set to GND</span>
+        <span style="color: #ff0086; font-weight: bold">OUT</span> <span style="color: #fb660a">PORTB</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">R16</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">;turn led ON</span>
+        <span style="color: #ff0086; font-weight: bold">SBIS</span> <span style="color: #fb660a">PINA</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">0</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">; Skip if Switch is set to 5V</span>
+        <span style="color: #ff0086; font-weight: bold">OUT</span> <span style="color: #fb660a">PORTB</span><span style="color: #ffffff">,</span> <span style="color: #fb660a">R17</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">;turn led OFF</span>
+        <span style="color: #ff0086; font-weight: bold">JMP</span> <span style="color: #fb660a">ever</span>
+        </pre>
+      </div>
+
+      <hr />
+    </details>
+
+    <br /><br />
+    <h3>Two LEDs and Two wires</h3>
+    <p>
+      Connect a wire to PA0 and another wire to PA1. <br />
+      Connect a LED to PA2 and the other end of the LED to ground. <br />
+      Create a program that turns on the testLED (PB7) when the wire PA0 is
+      connected to 5V. And turns on the external led when the wire on PA1 is
+      connected to 5V.
+    </p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <code> Nope, do it youself <br /> </code>
+      <hr />
+    </details>
+    <br />
+  </body>
+</html>
