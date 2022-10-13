@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Laurits Ivar" />
+    <meta
+      name="description"
+      content="This page contains CAO exercises to lecture 7"
+    />
+    <title>CAO exercises</title>
+    <link
+      rel="icon"
+      href="microchip-clipart-pgb-chip-generic_Vector_Clipart-2655172564.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="..">go back</a>
+    <h2>Normalization of numbers</h2>
+    <h3>Normalize the following decimal numbers</h3>
+    <table>
+      <tr>
+        <th>Denoprmalized</th>
+        <th>Normalized</th>
+      </tr>
+      <tr>
+        <td>1024</td>
+        <td>1.024 <mo>&#x22C5;</mo> 10 <sup>3</sup></td>
+      </tr>
+      <tr>
+        <td>1000000</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>0.000898</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>0.5<mo>&#x22C5;</mo>10<sup>-3</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>0.5<mo>&#x22C5;</mo>10<sup>3</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>131<mo>&#x22C5;</mo>10<sup>-3</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>131<mo>&#x22C5;</mo>10<sup>3</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>213.456</td>
+        <td></td>
+      </tr>
+    </table>
+    <br />
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <table>
+        <tr>
+          <th>Denoprmalized</th>
+          <th>Normalized</th>
+        </tr>
+        <tr>
+          <td>1024</td>
+          <td>1.024 <mo>&#x22C5;</mo> 10 <sup>3</sup></td>
+        </tr>
+        <tr>
+          <td>1000000</td>
+          <td>1<mo>&#x22C5;</mo>10 <sup>6</sup></td>
+        </tr>
+        <tr>
+          <td>0.000898</td>
+          <td>8.98<mo>&#x22C5;</mo>10<sup>-4</sup></td>
+        </tr>
+        <tr>
+          <td>0.5<mo>&#x22C5;</mo>10<sup>-3</sup></td>
+          <td>5<mo>&#x22C5;</mo>10<sup>-4</sup></td>
+        </tr>
+        <tr>
+          <td>0.5<mo>&#x22C5;</mo>10<sup>3</sup></td>
+          <td>5<mo>&#x22C5;</mo>10<sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>131<mo>&#x22C5;</mo>10<sup>-3</sup></td>
+          <td>1.31<mo>&#x22C5;</mo>10<sup>-1</sup></td>
+        </tr>
+        <tr>
+          <td>131<mo>&#x22C5;</mo>10<sup>3</sup></td>
+          <td>1.31<mo>&#x22C5;</mo>10<sup>5</sup></td>
+        </tr>
+        <tr>
+          <td>213.456</td>
+          <td>2.13456<mo>&#x22C5;</mo>10<sup>2</sup></td>
+        </tr>
+      </table>
+
+      <hr />
+    </details>
+
+    <h3>Normalize the following binary numbers</h3>
+    <p>(The exponent can be written in decimal)</p>
+    <table>
+      <tr>
+        <th>Denoprmalized</th>
+        <th>Normalized</th>
+      </tr>
+      <tr>
+        <td>0.0011</td>
+        <td>1.1 <mo>&#x22C5;</mo> 2 <sup>-3</sup></td>
+      </tr>
+      <tr>
+        <td>1100</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>111.0011</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>0.0011<mo>&#x22C5;</mo>2<sup>3</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>0.0011<mo>&#x22C5;</mo>2<sup>-3</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>11001.01<mo>&#x22C5;</mo>2<sup>3</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>11001.01<mo>&#x22C5;</mo>2<sup>-3</sup></td>
+        <td></td>
+      </tr>
+    </table>
+    <br />
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <table>
+        <tr>
+          <th>Denoprmalized</th>
+          <th>Normalized</th>
+        </tr>
+        <tr>
+          <td>0.0011</td>
+          <td>1.1 <mo>&#x22C5;</mo> 2 <sup>-3</sup></td>
+        </tr>
+        <tr>
+          <td>1100</td>
+          <td>1.1<mo>&#x22C5;</mo> 2 <sup>3</sup></td>
+        </tr>
+        <tr>
+          <td>111.0011</td>
+          <td>1.110011<mo>&#x22C5;</mo> 2 <sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>0.0011<mo>&#x22C5;</mo>2<sup>3</sup></td>
+          <td>1.1<mo>&#x22C5;</mo> 2 <sup>0</sup>=1.1</td>
+        </tr>
+        <tr>
+          <td>0.0011<mo>&#x22C5;</mo>2<sup>-3</sup></td>
+          <td>1.1<mo>&#x22C5;</mo> 2 <sup>-6</sup></td>
+        </tr>
+        <tr>
+          <td>11001.01<mo>&#x22C5;</mo>2<sup>3</sup></td>
+          <td>1.100101<mo>&#x22C5;</mo> 2 <sup>7</sup></td>
+        </tr>
+        <tr>
+          <td>11001.01<mo>&#x22C5;</mo>2<sup>-3</sup></td>
+          <td>1.100101<mo>&#x22C5;</mo> 2 <sup>1</sup></td>
+        </tr>
+      </table>
+
+      <hr />
+    </details>
+
+    <h2>Float registers</h2>
+    <h3>
+      A single precision Floating point register contains the following bits:
+    </h3>
+    <table>
+      <tr>
+        <td>
+          <mark class="green">1</mark><mark class="red">10000000</mark
+          ><mark class="yellow">11010000000000000000000</mark>
+        </td>
+      </tr>
+    </table>
+    <p>What’s the decimal number in the register?</p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <p>
+        S(sign)=1, meaning that the number is negative <br />
+        Exponent = 10000000<sub>2</sub> = 128, -> biased(128) = 128-127=1 -> 2
+        <sup>1</sup>=2<br />
+        Fraction = <mark class="red">1</mark>.1101<sub>2</sub> =
+        2<sup>0</sup>+2<sup>-1</sup>+2<sup>-2</sup>+2<sup>-4</sup>=1.8125 <br />
+        <br />
+        Value = (-1)<sup>S</sup><mo>&#x22C5;</mo> Fraction
+        <mo>&#x22C5;</mo> Exponent = (-1)<sup>1</sup><mo>&#x22C5;</mo> 1.8125
+        <mo>&#x22C5;</mo> 2 = -3.625 <br />
+      </p>
+
+      <hr />
+    </details>
+
+
+
+    <h3>
+      A single precision Floating point register contains the following bits:
+    </h3>
+    <table>
+      <tr>
+        <td>
+          <mark class="green">0</mark><mark class="red">10010000</mark
+          ><mark class="yellow">10000000000000000000000</mark>
+        </td>
+      </tr>
+    </table>
+    <p>What’s the decimal number in the register?</p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <p>
+        S(sign)=0, meaning that the number is positive <br />
+        Exponent = 10010000<sub>2</sub> = 144, -> biased(144) = 144-127=17 -> 2
+        <sup>17</sup><br />
+        Fraction = <mark class="red">1</mark>.1<sub>2</sub> =
+        2<sup>0</sup>+2<sup>-1</sup>=1.5 <br />
+        <br />
+        Value = (-1)<sup>S</sup><mo>&#x22C5;</mo> Fraction
+        <mo>&#x22C5;</mo> Exponent = (-1)<sup>0</sup><mo>&#x22C5;</mo> 1.5
+        <mo>&#x22C5;</mo> 2<sup>17</sup> = 196608 <br />
+      </p>
+
+      <hr />
+    </details>
+
+    <h3>
+      A single precision Floating point register contains the following bits:
+    </h3>
+    <table>
+      <tr>
+        <td>
+          <mark class="green">0</mark><mark class="red">11111111</mark
+          ><mark class="yellow">10100100000000000000000</mark>
+        </td>
+      </tr>
+    </table>
+    <p>What’s the decimal number in the register?</p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <p>
+       NaN, (Not a Number)
+      </p>
+
+      <hr />
+    </details>
+
+
+    <h3>
+      A single precision Floating point register contains the following bits:
+    </h3>
+    <table>
+      <tr>
+        <td>
+          <mark class="green">0</mark><mark class="red">11111111</mark
+          ><mark class="yellow">00000000000000000000000</mark>
+        </td>
+      </tr>
+    </table>
+    <p>What’s the decimal number in the register?</p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <p>
+       Infinite <br>
+       According to the standard when all Exponential bits are set and all the Fraction bits are cleared,  the result are infinite. 
+      </p>
+
+      <hr />
+    </details>
+
+    <h3>
+      A single precision Floating point register contains the following bits:
+    </h3>
+    <table>
+      <tr>
+        <td>
+          <mark class="green">1</mark><mark class="red">11111111</mark
+          ><mark class="yellow">00000000000000000000000</mark>
+        </td>
+      </tr>
+    </table>
+    <p>What’s the decimal number in the register?</p>
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <p>
+       -Infinite <br>
+       
+      </p>
+
+      <hr />
+    </details>
+
+  </body>
+</html>
