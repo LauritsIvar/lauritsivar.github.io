@@ -213,8 +213,6 @@
       <hr />
     </details>
 
-
-
     <h3>
       A single precision Floating point register contains the following bits:
     </h3>
@@ -260,13 +258,10 @@
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
       <hr />
-      <p>
-       NaN, (Not a Number)
-      </p>
+      <p>NaN, (Not a Number)</p>
 
       <hr />
     </details>
-
 
     <h3>
       A single precision Floating point register contains the following bits:
@@ -284,8 +279,9 @@
       <summary><mark> Click here to see the solution</mark></summary>
       <hr />
       <p>
-       Infinite <br>
-       According to the standard when all Exponential bits are set and all the Fraction bits are cleared,  the result are infinite. 
+        Infinite <br />
+        According to the standard when all Exponential bits are set and all the
+        Fraction bits are cleared, the result are infinite.
       </p>
 
       <hr />
@@ -306,13 +302,176 @@
     <details>
       <summary><mark> Click here to see the solution</mark></summary>
       <hr />
+      <p>-Infinite <br /></p>
+
+      <hr />
+    </details>
+
+    <h3>
+      A single precision Floating point register contains the following bits:
+    </h3>
+    <table>
+      <tr>
+        <td>
+          <mark class="green">0</mark><mark class="red">00010000</mark
+          ><mark class="yellow">10000000000000000000000</mark>
+        </td>
+      </tr>
+    </table>
+    <p>What’s the decimal number in the register?</p>
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
       <p>
-       -Infinite <br>
-       
+        S(sign)=0, meaning that the number is positive <br />
+        Exponent = 00010000<sub>2</sub> = 16, -> biased(16) = 16-127=-111 -> 2
+        <sup>-111</sup><br />
+        Fraction = <mark class="red">1</mark>.1<sub>2</sub> =
+        2<sup>0</sup>+2<sup>-1</sup>=1.5 <br />
+        <br />
+        Value = (-1)<sup>S</sup><mo>&#x22C5;</mo> Fraction
+        <mo>&#x22C5;</mo> Exponent = (-1)<sup>0</sup><mo>&#x22C5;</mo> 1.5
+        <mo>&#x22C5;</mo> 2<sup>-111</sup> = 5.778 <mo>&#x22C5;</mo>10<sup
+          >-34</sup
+        ><br />
       </p>
 
       <hr />
     </details>
 
+    <h3>
+      What is the biggest number (less than infinite) you can write in a single
+      precision float register?
+    </h3>
+    <br />
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <table>
+        <tr>
+          <td>
+            <mark class="green">0</mark><mark class="red">11111110</mark
+            ><mark class="yellow">11111111111111111111111</mark>
+          </td>
+        </tr>
+      </table>
+      <p>
+        S(sign)=0, meaning that the number is positive <br />
+        Exponent = 11111110<sub>2</sub> = 254, -> biased(254) = 254-127=127 -> 2
+        <sup>127</sup><br />
+        Fraction = <mark class="red">1</mark>.11111111111111111111111<sub
+          >2</sub
+        >
+        = almost 2 <br />
+        <br />
+        Value = (-1)<sup>S</sup><mo>&#x22C5;</mo> Fraction
+        <mo>&#x22C5;</mo> Exponent = (-1)<sup>0</sup><mo>&#x22C5;</mo> 2
+        <mo>&#x22C5;</mo> 2<sup>127</sup> =2<sup>128</sup> = 3.403
+        <mo>&#x22C5;</mo>10<sup>38</sup><br />
+      </p>
+
+      <hr />
+    </details>
+
+    <h3>
+      What is the smallest number that are bigger than zero you can write in a
+      single precision float register?
+    </h3>
+    <br />
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+      <table>
+        <tr>
+          <td>
+            <mark class="green">0</mark><mark class="red">00000000</mark
+            ><mark class="yellow">00000000000000000000001</mark>
+          </td>
+        </tr>
+      </table>
+      <p>
+        S(sign)=0, meaning that the number is positive <br />
+        Exponent = 00000000<sub>2</sub> = 0, -> biased(0) = -126, bacuase its a
+        denormalized number (look in the table)= -> 2 <sup>-12</sup><br />
+        Fraction = <mark class="red">0</mark>.0000000000000000001<sub>2</sub> =
+        2 <sup>-23</sup> <br />
+        <br />
+        Value = (-1)<sup>S</sup><mo>&#x22C5;</mo> Fraction
+        <mo>&#x22C5;</mo> Exponent = (-1)<sup>0</sup><mo>&#x22C5;</mo> 2<sup
+          >-23</sup
+        >
+        <mo>&#x22C5;</mo> 2<sup>-126</sup> =2<sup>-249</sup> = 1.401
+        <mo>&#x22C5;</mo>10<sup>-45</sup><br />
+      </p>
+
+      <hr />
+    </details>
+
+    <h3>
+      In a single precision floating point register the exponential bits
+      contains the bits 11111110. What is the resolution?
+    </h3>
+    <br />
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+      <p>
+        2 <sup>-23</sup><mo>&#x22C5;</mo>2 <sup>154-127</sup>=2.028*10
+        <sup>31</sup>
+      </p>
+
+      <hr />
+    </details>
+
+    <h3>
+      Calculate 2^25+1 using IEEE standard for single precision floating point.
+    </h3>
+    <br />
+
+    <details>
+      <summary><mark> Click here to see the solution</mark></summary>
+      <hr />
+
+      <img src="pics/solFloat1.PNG" alt="" />
+
+      <hr />
+    </details>
+
+    <h3>Calculate 1 hour + 1 ms using IEEE standerd for single precision floating
+      point.</h3>
+    
+    <p>The unit could forinstance be seconds. <br /></p>
+    <table>
+      <tr>
+        <td></td>
+        <td>Fraction (binary)</td>
+        <td>Exponent (decimal)</td>
+      </tr>
+      <tr>
+        <td>3600s</td>
+        <td>1.11000010000000000000000</td>
+        <td>11</td>
+      </tr>
+      <tr>
+        <td>10^-6 s</td>
+        <td>1.00001100011011100000000</td>
+        <td>-20</td>
+      </tr>
+    </table>
+    <details>
+      <summary>
+        <mark>
+          Click here to see the solution </mark
+        >
+      </summary>
+      
+      <hr />
+
+      <img src="pics/solFloat2.PNG" alt="" />
+
+      <hr />
+    </details>
   </body>
 </html>
